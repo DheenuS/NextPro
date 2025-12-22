@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Tech Trio",
+    "language": "HTML, CSS, JavaScript",
+    "image": "/react.png"
+  },
+  {
+    "id": 2,
+    "name": "Employee Task Management",
+    "language": "Python",
+    "image": "/js.png"
+  },
+  {
+    "id": 3,
+    "name": "E-commerce Application",
+    "language": "Java",
+    "image": "/html.png"
+  },
+  {
+    "id": 4,
+    "name": "Chat Application",
+    "language": "JavaScript (Node.js)",
+    "image": "/database.png"
+  },
+  {
+    "id": 5,
+    "name": "Healthflo",
+    "language": "React Js, JavaScript",
+     "image": "/css-3.png"
+  },
+  {
+    "id": 6,
+    "name": "Expense Tracker",
+    "language": "React JS, TypeScript",
+    "image": "/node.png"
+  }
+]

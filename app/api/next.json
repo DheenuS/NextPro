@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Next.js",
+    "icon": "/nextjs.svg",
+    "description": "Next.js is a React-based framework for building fast, scalable, and SEO-friendly web applications with server-side rendering and static site generation.",
+    "website": "https://nextjs.org",
+    "creator": "Vercel",
+    "initialRelease": "2016",
+    "category": "Web Framework",
+    "language": "JavaScript / TypeScript",
+    "features": [
+      {
+        "title": "Server-Side Rendering (SSR)",
+        "description": "Renders pages on the server for improved performance and SEO."
+      },
+      {
+        "title": "Static Site Generation (SSG)",
+        "description": "Generates static pages at build time for faster load times."
+      },
+      {
+        "title": "App Router",
+        "description": "File-based routing system with layouts, streaming, and nested routes."
+      },
+      {
+        "title": "API Routes",
+        "description": "Create backend APIs directly inside the application."
+      },
+      {
+        "title": "Image Optimization",
+        "description": "Automatic image optimization for better performance."
+      }
+    ]
+  }
+]
