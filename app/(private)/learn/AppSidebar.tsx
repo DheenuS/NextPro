@@ -46,7 +46,6 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 const mainItems = [
@@ -65,9 +64,8 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="z-50">
+    <Sidebar className="z-999">
       <SidebarHeader />
-
       <SidebarContent>
         {/* Main navigation */}
         <SidebarGroup>

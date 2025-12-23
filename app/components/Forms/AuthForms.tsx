@@ -67,7 +67,21 @@ export default function AuthForms() {
   } = registerForm;
 
   const onSubmitLogin = async (data: LoginFormValue) => {
-    if (data.username !== "dheen" && data.password !== "123") {
+
+    // const url = "http://localhost:3000";
+
+    // const res = await fetch(`${url}/api/login`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+
+    // const result = await res.json();
+    // console.log(result)
+
+    if (data.username !== "dheen" && data.password !== "dheen") {
       toast.error("Invalid Credentials...", {
         description: `Please try again`,
       });
@@ -75,6 +89,7 @@ export default function AuthForms() {
     }
 
     login(data.username);
+    console.log(data.username, data.password)
 
     toast.success("Login successful 🎉", {
       description: `Welcome back, ${data.username}`,

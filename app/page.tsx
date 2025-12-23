@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans -mt-20">
-      <p className="text-4xl font-semibold">Welcome to the world of Next.js</p>
+    <div className="flex min-h-screen items-center justify-center font-sans -mt-20 px-4 sm:px-4 md:px-10">
+      <p className="text-4xl font-semibold text-wrap text-center">Welcome to the world of Next.js</p>
     </div>
   );
 }

@@ -2,8 +2,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function CourseLoadingSkeleton() {
   return (
-    <div className="w-105 rounded-xl border-2 border-[#222222] py-4 px-6 space-y-4">
-
+    <div className="w-full max-w-full rounded-xl border-2 border-[#222222] py-4 px-4 sm:px-6 space-y-4">
+      
       <div className="flex justify-between pt-4 pb-10">
         <Skeleton className="h-4 w-28" />
         <Skeleton className="h-4 w-16" />

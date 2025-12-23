@@ -33,7 +33,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="flex flex-col text-center min-h-screen -mt-20 items-center justify-center font-sans py-4 gap-6 px-4 sm:px-6 md:px-8">
+    <div className="flex text-center min-h-screen -mt-10 items-center justify-center font-sans py-4 gap-6 px-4 sm:px-6 md:px-8">
       <ProfileForm />
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md">
         <div className="space-y-1">

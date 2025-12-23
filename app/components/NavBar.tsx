@@ -1,8 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export const publicLinks = [
@@ -24,12 +26,19 @@ const NavBar = () => {
 
   const links = isAuthenticated ? privateLinks : publicLinks;
 
+  const path = usePathname();
+
+  const showTrigger = path.startsWith("/learn");
+
   return (
     <nav className="sticky top-0 z-50 bg-zinc-50 dark:bg-black border-b font-sans">
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-        <Link href={"/"}>
-          <p className="font-bold text-lg">Next JS</p>
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link href={"/"}>
+            <p className="font-bold text-lg">Next JS</p>
+          </Link>
+          {showTrigger && <SidebarTrigger />}
+        </div>
 
         {/* Desktop */}
         <ul className="hidden sm:flex items-center space-x-6">

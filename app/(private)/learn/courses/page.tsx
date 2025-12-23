@@ -76,7 +76,6 @@ export default function CoursesAPI() {
     if (sortValue === "z-a") {
       result.sort((a, b) => b.title.localeCompare(a.title));
     }
-    // setPage(1);
     setFilteredCourses(result);
   }, [search, sortValue, courses]);
 
@@ -96,46 +95,49 @@ export default function CoursesAPI() {
   const totalPages = Math.ceil(filteredCourses.length / PAGE_SIZE);
 
   return (
-    <section className="w-full font-sans px-2 sm:px-4 md:px-6">
-      <div className="flex items-center justify-between gap-4">
-        <p className="text-4xl font-semibold px-0 py-4 sticky top-18">
+    <section className="w-full min-h-screen font-sans px-2 sm:px-4 md:px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-4 w-full items-center gap-4 pb-4 sm:pb-0">
+        <p className="col-span-1 sm:col-span-2 text-4xl font-semibold sm:py-4">
           Courses
         </p>
-        <div className="flex items-center justify-center gap-2 static right-5">
-          <InputTag placeholder={"Filter courses here"} setValue={setSearch} />
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 max-w-md"
-          >
-            <div className="space-y-1">
-              <FormSelect
-                name="sort"
-                control={control}
-                errors={errors.sort}
-                options={sortTypes}
-              />
-            </div>
+
+        <div className="col-span-1 sm:col-span-2 flex flex-wrap sm:flex-nowrap justify-between sm:flex-row sm:justify-end gap-2">
+          <InputTag placeholder="Filter courses here" setValue={setSearch} />
+          <form onSubmit={handleSubmit(onSubmit)} className="max-w-md">
+            <FormSelect
+              name="sort"
+              control={control}
+              errors={errors.sort}
+              options={sortTypes}
+            />
           </form>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {!loading
-          ? paginatedCourses.map((course) => <CourseCard courses={course} />)
-          : Array.from({ length: 6 }).map((_, idx) => (
-              <CourseLoadingSkeleton />
-            ))}
+
+      <div className="grid min-h-[calc(100vh-200px)] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {loading &&
+          Array.from({ length: 6 }).map((_, idx) => (
+            <CourseLoadingSkeleton key={idx} />
+          ))}
+
+        {!loading &&
+          paginatedCourses.map((course) => (
+            <CourseCard key={course.id} courses={course} />
+          ))}
+
+        {!loading && paginatedCourses.length === 0 && (
+          <div className="col-span-full flex justify-center items-center">
+            <p className="text-muted-foreground">No courses found</p>
+          </div>
+        )}
       </div>
+
       {totalPages > 1 && (
         <CoursePagination
           page={page}
           setPage={setPage}
           totalPages={totalPages}
         />
-      )}
-      {!loading && paginatedCourses.length === 0 && (
-        <div className="">
-          <p className="text-center text-muted-foreground">No courses found</p>
-        </div>
       )}
     </section>
   );
