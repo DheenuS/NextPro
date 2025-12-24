@@ -58,16 +58,17 @@ export default function AuthForms() {
   const {
     register: loginRegister,
     handleSubmit: handleSubmitLogin,
+    reset: handleResetLogin,
     formState: { errors: loginErrors, isSubmitting: loginIsSubmitting },
   } = loginForm;
   const {
     register: registerRegister,
     handleSubmit: handleSubmitRegister,
+    reset: handleResetRegister,
     formState: { errors: registerErrors, isSubmitting: registerIsSubmitting },
   } = registerForm;
 
   const onSubmitLogin = async (data: LoginFormValue) => {
-
     // const url = "http://localhost:3000";
 
     // const res = await fetch(`${url}/api/login`, {
@@ -81,7 +82,9 @@ export default function AuthForms() {
     // const result = await res.json();
     // console.log(result)
 
-    if (data.username !== "dheen" && data.password !== "dheen") {
+    const pattern = ["a-zA-Z1-9.com"];
+
+    if (data.username !== "dheen" && data.password !== "Dheen@777") {
       toast.error("Invalid Credentials...", {
         description: `Please try again`,
       });
@@ -89,12 +92,12 @@ export default function AuthForms() {
     }
 
     login(data.username);
-    console.log(data.username, data.password)
+    console.log(data.username, data.password);
 
     toast.success("Login successful 🎉", {
       description: `Welcome back, ${data.username}`,
     });
-
+    handleResetLogin();
     router.push("/home");
   };
 
@@ -108,6 +111,7 @@ export default function AuthForms() {
       });
       return;
     }
+    handleResetRegister();
     router.push("/login?activeTab=login");
   };
 

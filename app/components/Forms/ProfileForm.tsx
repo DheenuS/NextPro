@@ -8,6 +8,7 @@ import { PersonalSection } from "./PersonalSection";
 import { useState } from "react";
 
 const ProfileForm = () => {
+  // Forcing to clear the DOM reference of the image
   const [formKey, setFormKey] = useState(0);
 
   const methods = useForm<ProFormValues>({

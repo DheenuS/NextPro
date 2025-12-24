@@ -43,7 +43,7 @@ export const PersonalSection = () => {
       <Card>
         <CardHeader className="text-center">
           <CardTitle>Profile</CardTitle>
-          <CardDescription>Your profile Information</CardDescription>
+          <CardDescription>Edit profile Information</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6 text-left">
           <FormInput

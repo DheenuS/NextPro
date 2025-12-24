@@ -28,6 +28,7 @@ export interface ProjectButtonProps {
 }
 
 export interface FilterInput {
+  field?: any;
   placeholder: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }

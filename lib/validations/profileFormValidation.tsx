@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const profileSchema = z.object({
   role: z.string().min(1, "Role is required"),
+  department: z.string().min(1, "Department is required"),
 });
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024;
@@ -15,7 +16,7 @@ export const proSchema = z.object({
       "Image is required"
     )
     .refine(
-      (files) => ACCEPTED_FILE_TYPES.includes(files[0].type),
+      (files) => !files || files.length === 0 || ACCEPTED_FILE_TYPES.includes(files[0].type),
       "Only JPEG, JPG and PNG images are allowed"
     )
     .refine(

@@ -95,7 +95,7 @@ export default function CoursesAPI() {
   const totalPages = Math.ceil(filteredCourses.length / PAGE_SIZE);
 
   return (
-    <section className="w-full min-h-screen font-sans px-2 sm:px-4 md:px-6">
+    <section className="flex flex-col w-full min-h-screen font-sans px-2 sm:px-4 md:px-6">
       <div className="grid grid-cols-1 sm:grid-cols-4 w-full items-center gap-4 pb-4 sm:pb-0">
         <p className="col-span-1 sm:col-span-2 text-4xl font-semibold sm:py-4">
           Courses
@@ -114,7 +114,7 @@ export default function CoursesAPI() {
         </div>
       </div>
 
-      <div className="grid min-h-[calc(100vh-200px)] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid min-h-[calc(50vh-200px)] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {loading &&
           Array.from({ length: 6 }).map((_, idx) => (
             <CourseLoadingSkeleton key={idx} />
@@ -132,13 +132,15 @@ export default function CoursesAPI() {
         )}
       </div>
 
-      {totalPages > 1 && (
-        <CoursePagination
-          page={page}
-          setPage={setPage}
-          totalPages={totalPages}
-        />
-      )}
+      <div className="mt-auto">
+        {totalPages > 1 && (
+          <CoursePagination
+            page={page}
+            setPage={setPage}
+            totalPages={totalPages}
+          />
+        )}
+      </div>
     </section>
   );
 }

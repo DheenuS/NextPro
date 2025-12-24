@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/select";
 
 type FormSelectProps = {
+  label?: string,
   name: string;
   control: Control<any>;
   errors?: FieldError;
@@ -15,19 +16,21 @@ type FormSelectProps = {
 };
 
 export function FormSelect({
+  label,
   name,
   control,
   errors,
   options,
 }: FormSelectProps) {
   return (
-    <div className="grid gap-2">
+    <div className="grid ">
+      <label htmlFor="">{label}</label>
       <Controller
         name={name}
         control={control}
         render={({ field }) => (
           <Select value={field.value} onValueChange={field.onChange}>
-            <SelectTrigger>
+            <SelectTrigger className="min-w-full">
               <SelectValue placeholder={`${name}`} />
             </SelectTrigger>
             <SelectContent className="w-40 h-auto">
